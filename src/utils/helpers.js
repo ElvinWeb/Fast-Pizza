@@ -20,4 +20,21 @@ function calcMinutesLeft(dateStr) {
   return Math.round((d2 - d1) / 60000);
 }
 
-export { formatCurrency, formatDate, calcMinutesLeft };
+function getPosition() {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+}
+
+const isValidPhone = (str) =>
+  /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
+    str
+  );
+
+export {
+  formatCurrency,
+  formatDate,
+  calcMinutesLeft,
+  isValidPhone,
+  getPosition,
+};
